@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Assignment 03 - Organization</title>
+<!-- Font Awesome -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+	rel="stylesheet" />
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+	rel="stylesheet" />
+<!-- MDB -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
+	rel="stylesheet" />
+<!-- MDB -->
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">Recruitment System</a>
+			<button class="navbar-toggler" type="button"
+				data-mdb-toggle="collapse" data-mdb-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<i class="fas fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" th:href="@{/candidates.html}">Candidates</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/organizations.html}">Organizations</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/jobs.html}">Jobs</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="d-flex justify-content-center">
+		<div class="organization" style="margin-top: 50px;">
+			<div class="organization-body p-4 p-md-5">
+				<h3 class="mb-4 pb-2">Create organization</h3>
+				<form th:action="@{/createOrganization}" th:object="${organization}"
+					method="post">
+					<div class="row">
+						<div class="col-md-6 mb-4">
+							<div class="form-outline">
+								<input type="text" th:field="*{orgName}" class="form-control active" /> <label
+									class="form-label" for="orgName">Organization Name</label>
+							</div>
+						</div>
+						<div class="col-md-6 mb-4">
+							<div class="form-outline">
+								<input type="text" th:field="*{orgId}" class="form-control active" /> <label
+									class="form-label" for="orgId">Organization ID</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-4">
+							<div class="form-outline">
+								<input type="text" th:field="*{address}" class="form-control active" /> <label
+									class="form-label" for="address">Address</label>
+							</div>
+						</div>
+						<div class="col-md-6 mb-4">
+							<div class="form-outline">
+								<input type="text" th:field="*{phone}" class="form-control active" /> <label
+									class="form-label" for="phone">Phone</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-4">
+							<div class="form-outline">
+								<input type="text" th:field="*{website}" class="form-control active" /> <label
+									class="form-label" for="website">Website</label>
+							</div>
+						</div>
+					</div>
+					<div class="mt-4">
+                      <input class="btn btn-warning btn-lg" type="submit" value="Create" />
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
